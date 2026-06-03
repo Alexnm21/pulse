@@ -1,0 +1,9 @@
+{
+  "title": "Pulse",
+  "main": {
+    "dashboard": "Dashboard",
+    "processes": "Processes",
+    "thermal": "Thermal",
+    "cleaner": "Cleaner"
+  }
+}

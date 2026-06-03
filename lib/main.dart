@@ -1,9 +1,37 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pulse/features/main/ui/bloc/main_bloc.dart';
+import 'package:pulse/features/main/ui/page/main_page.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'core/theme/app_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  WindowOptions windowOptions = const WindowOptions(
+    size: Size(1280, 1024),
+    minimumSize: Size(800, 600),
+    center: true,
+    titleBarStyle: TitleBarStyle.hidden,
+  );
+
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('en'),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,10 +39,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Pulse',
-      theme: AppTheme.appTheme,
-      home: const Scaffold(),
+    return BlocProvider(
+      create: (context) => MainBloc(),
+      child: MaterialApp(
+        title: 'Pulse',
+        theme: AppTheme.appTheme,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        home: const MainPage(),
+      ),
     );
   }
 }

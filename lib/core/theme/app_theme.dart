@@ -33,6 +33,23 @@ class AppTheme {
         elevation: 0,
         centerTitle: true,
       ),
+      listTileTheme: ListTileThemeData(
+        titleTextStyle: AppFonts.bodyLarge.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+        textColor: AppColors.unselectedColor,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 15.0,
+          vertical: 3,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+
+        selectedColor: Colors.white,
+        selectedTileColor: const Color(0xFF2C2C2E),
+        tileColor: Colors.transparent,
+      ),
     );
   }
 }

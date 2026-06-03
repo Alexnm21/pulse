@@ -16,12 +16,15 @@ class AppColors {
   static const Color error = Color(0xFFB00020);
 
   // Text colors
-  static const Color textPrimary = Color(0xFF1D1D1F);
+  static const Color textPrimary = Color(0xFFFFFFFF);
   static const Color textSecondary = Color(0xFF86868B);
-  static const Color textLight = Color(0xFFFFFFFF);
 
   // Accent & functional colors
   static const Color success = Color(0xFF34C759);
   static const Color warning = Color(0xFFFF9500);
   static const Color info = Color(0xFF007AFF);
+
+  static const Color sidebarBackground = Color(0xFF1D2021);
+  static const Color selectedColor = Color(0xFFADC6FF);
+  static const Color unselectedColor = Color(0xFFC1C6D7);
 }
