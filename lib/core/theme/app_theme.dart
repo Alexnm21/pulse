@@ -50,6 +50,10 @@ class AppTheme {
         selectedTileColor: const Color(0xFF2C2C2E),
         tileColor: Colors.transparent,
       ),
+      dividerTheme: DividerThemeData(
+        color: Colors.white.withValues(alpha: 0.1),
+        thickness: 1,
+      ),
     );
   }
 }

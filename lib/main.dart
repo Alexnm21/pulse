@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pulse/core/dependency_injection/injection_container.dart' as di;
 import 'package:pulse/features/main/ui/bloc/main_bloc.dart';
 import 'package:pulse/features/main/ui/page/main_page.dart';
 import 'package:window_manager/window_manager.dart';
@@ -11,6 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await di.init();
 
   WindowOptions windowOptions = const WindowOptions(
     size: Size(1280, 1024),
@@ -39,8 +41,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => MainBloc(),
+    return MultiBlocProvider(
+      providers: [BlocProvider.value(value: di.sl<MainBloc>())],
       child: MaterialApp(
         title: 'Pulse',
         theme: AppTheme.appTheme,

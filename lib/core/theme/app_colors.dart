@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Prevent instantiation
   AppColors._();
 
   // Primary colors
@@ -20,11 +19,12 @@ class AppColors {
   static const Color textSecondary = Color(0xFF86868B);
 
   // Accent & functional colors
-  static const Color success = Color(0xFF34C759);
-  static const Color warning = Color(0xFFFF9500);
-  static const Color info = Color(0xFF007AFF);
+  static const Color normal = Color(0xFF53E16F);
+  static const Color moderately = Color(0xFFFFCC00);
+  static const Color critical = Color(0xFFFF5545);
 
   static const Color sidebarBackground = Color(0xFF1D2021);
+  static const Color chipColor = Color(0xFF2A2A2A);
   static const Color selectedColor = Color(0xFFADC6FF);
   static const Color unselectedColor = Color(0xFFC1C6D7);
 }

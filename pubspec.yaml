@@ -30,11 +30,13 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
+  device_info_plus: ^13.1.0
   easy_localization: ^3.0.8
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
   flutter_svg: ^2.3.0
+  get_it: ^9.2.1
   shared_preferences: ^2.5.5
   window_manager: ^0.5.1
 

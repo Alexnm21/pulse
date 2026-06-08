@@ -5,5 +5,21 @@
     "processes": "Processes",
     "thermal": "Thermal",
     "cleaner": "Cleaner"
+  },
+  "dashboard": {
+    "cpu": {
+      "title": "CPU Core Usage",
+      "load": "Load",
+      "user": "User",
+      "system": "System",
+      "idle": "Idle",
+      "state": {
+        "load_state": "Load State",
+        "normal": "Normal",
+        "moderately": "Moderately",
+        "critical": "Critical",
+        "inactive": "Inactive"
+      }
+    }
   }
 }

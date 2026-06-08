@@ -6,6 +6,7 @@ import 'package:pulse/core/extensions/widgetx.dart';
 import 'package:pulse/core/theme/app_colors.dart';
 import 'package:pulse/core/theme/app_fonts.dart';
 import 'package:pulse/core/ui/widgets/custom_tile.dart';
+import 'package:pulse/core/ui/widgets/pulse_scaffold.dart';
 import 'package:pulse/features/main/ui/bloc/main_bloc.dart';
 
 part '../parts/sidebar.dart';
@@ -15,7 +16,7 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PulseScaffold(
       body: BlocBuilder<MainBloc, MainState>(
         builder: (context, state) {
           return Row(

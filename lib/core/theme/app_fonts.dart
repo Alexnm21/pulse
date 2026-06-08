@@ -32,7 +32,7 @@ class AppFonts {
 
   static const TextStyle bodyLarge = TextStyle(
     fontFamily: _fontFamily,
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: FontWeight.normal,
     color: AppColors.textPrimary,
   );

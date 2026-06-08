@@ -1,0 +1,40 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
+class CrystalCard extends StatelessWidget {
+  final Widget child;
+  final double borderRadius;
+  final double blur;
+  final EdgeInsetsGeometry? padding;
+
+  const CrystalCard({
+    super.key,
+    required this.child,
+    this.borderRadius = 16.0,
+    this.blur = 20.0,
+    this.padding,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+        child: Container(
+          padding: padding ?? const EdgeInsets.all(20.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(borderRadius),
+            color: Colors.white.withValues(alpha: 0.06),
+            border: Border.all(
+              color: Colors.white.withValues(alpha: 0.12),
+              width: 1.0,
+            ),
+          ),
+          child: child,
+        ),
+      ),
+    );
+  }
+}
