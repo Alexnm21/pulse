@@ -4,7 +4,15 @@ abstract class DashboardEvent {}
 
 class StartCpuMonitoringEvent extends DashboardEvent {}
 
-class CpuTickEvent extends DashboardEvent {
+class SystemTickEvent extends DashboardEvent {
   final CpuEntity cpu;
-  CpuTickEvent(this.cpu);
+  final MemoryEntity memory;
+
+  SystemTickEvent({required this.cpu, required this.memory});
+}
+
+class DashboardErrorEvent extends DashboardEvent {
+  final String message;
+
+  DashboardErrorEvent({required this.message});
 }

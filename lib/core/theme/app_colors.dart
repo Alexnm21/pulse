@@ -15,7 +15,7 @@ class AppColors {
   static const Color error = Color(0xFFB00020);
 
   // Text colors
-  static const Color textPrimary = Color(0xFFFFFFFF);
+  static const Color textPrimary = Color(0xFFE5E2E1);
   static const Color textSecondary = Color(0xFF86868B);
 
   // Accent & functional colors

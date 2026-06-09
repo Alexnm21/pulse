@@ -11,6 +11,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       primaryColor: AppColors.primary,
+
       scaffoldBackgroundColor: const Color(0xFF121212),
       colorScheme: ColorScheme.dark(
         primary: AppColors.primary,
@@ -37,7 +38,7 @@ class AppTheme {
         titleTextStyle: AppFonts.bodyLarge.copyWith(
           fontWeight: FontWeight.w500,
         ),
-        textColor: AppColors.unselectedColor,
+        textColor: AppColors.textPrimary,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 15.0,
           vertical: 3,

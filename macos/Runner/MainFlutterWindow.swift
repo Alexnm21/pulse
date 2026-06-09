@@ -27,6 +27,13 @@ public class MainFlutterWindow: NSWindow {
         }
     }
 
-
+    // * Memory Channel
+    let memoryChannel = FlutterMethodChannel(name: "com.pulse.app/memory", binaryMessenger: binaryMessenger)
+    memoryChannel.setMethodCallHandler { (call, result) in
+        if call.method == "getMemoryUsage" {
+            if let data = MemoryService.shared.getMemoryUsage() { result(data) } 
+            else { result(FlutterError(code: "ERR", message: "Memory falló", details: nil)) }
+        }
+    }
   }
 }

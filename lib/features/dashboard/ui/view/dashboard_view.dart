@@ -8,11 +8,14 @@ import 'package:pulse/core/theme/app_colors.dart';
 import 'package:pulse/core/theme/app_fonts.dart';
 import 'package:pulse/core/ui/widgets/circular_progress_monitor.dart';
 import 'package:pulse/core/ui/widgets/crystal_card.dart';
+import 'package:pulse/core/ui/widgets/horizontal_progress_monitor.dart';
 import 'package:pulse/core/ui/widgets/svg_icon.dart';
 import 'package:pulse/features/dashboard/domain/entities/cpu_entity.dart';
+import 'package:pulse/features/dashboard/domain/entities/memory_entity.dart';
 import 'package:pulse/features/dashboard/domain/enums/cpu_state.dart';
 import 'package:pulse/features/dashboard/ui/bloc/dashboard_bloc.dart';
 import 'package:pulse/features/dashboard/ui/widgets/cpu_state_chip.dart';
+import 'package:pulse/features/dashboard/ui/widgets/memory_row.dart';
 
 part '../parts/cpu_part.dart';
 part '../parts/memory_part.dart';
@@ -35,10 +38,14 @@ class DashboardView extends StatelessWidget {
                     return Column(
                       children: [
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(flex: 65, child: CpuPart(cpu: state.cpu)),
                             const SizedBox(width: 16),
-                            Expanded(flex: 35, child: MemoryPart()),
+                            Expanded(
+                              flex: 35,
+                              child: MemoryPart(data: state.memory),
+                            ),
                           ],
                         ),
                       ],

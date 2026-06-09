@@ -20,6 +20,13 @@
         "critical": "Critical",
         "inactive": "Inactive"
       }
+    },
+    "memory": {
+      "title": "Memory Pressure",
+      "app": "App Memory",
+      "wired": "Wired Memory",
+      "compressed": "Compressed Memory"
+      
     }
   }
 }
