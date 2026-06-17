@@ -3,7 +3,7 @@ class StorageEntity {
   final double usedStorage;
   final double freeStorage;
 
-  StorageEntity({
+  const StorageEntity({
     required this.totalStorage,
     required this.usedStorage,
     required this.freeStorage,

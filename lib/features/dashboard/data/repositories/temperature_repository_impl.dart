@@ -3,7 +3,9 @@ import 'package:pulse/features/dashboard/domain/repositories/temperature_reposit
 
 class TemperatureRepositoryImpl implements TemperatureRepository {
   final TemperatureLocalDataSource _localDataSource;
-  TemperatureRepositoryImpl(this._localDataSource);
+
+  const TemperatureRepositoryImpl(this._localDataSource);
+
   @override
   Future<double> getTemperature() => _localDataSource.getTemperature();
 }

@@ -8,7 +8,7 @@ class StorageRepositoryImpl implements StorageRepository {
   const StorageRepositoryImpl(this._localDataSource);
 
   @override
-  Future<StorageEntity> getStorageUsage() {
-    return _localDataSource.getLiveStorage();
+  Future<StorageEntity> getStorageUsage() async {
+    return await _localDataSource.getLiveStorage();
   }
 }

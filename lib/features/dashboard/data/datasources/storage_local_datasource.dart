@@ -6,7 +6,7 @@ class StorageLocalDataSource {
 
   Future<StorageModel> getLiveStorage() async {
     try {
-      final Map<dynamic, dynamic>? result = await _channel.invokeMethod(
+      final Map<dynamic, dynamic>? result = await _channel.invokeMapMethod(
         'getStorageUsage',
       );
 
@@ -16,7 +16,7 @@ class StorageLocalDataSource {
       final formattedMap = result.map(
         (key, value) => MapEntry(key.toString(), value),
       );
-      return StorageModel.fromJson(formattedMap);
+      return StorageModel.fromMap(formattedMap);
     } catch (e) {
       throw Exception("Error interacting with macOS native channel: $e");
     }
