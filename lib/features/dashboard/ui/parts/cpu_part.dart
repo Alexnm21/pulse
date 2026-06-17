@@ -21,7 +21,7 @@ class CpuPart extends StatelessWidget {
               Text('dashboard.cpu.title'.tr(), style: AppFonts.bodyLarge),
 
               Spacer(),
-              CpuStateChip(cpuState: CpuState.normal),
+              CpuStateChip(cpuState: CpuStateX.fromLoad(cpu.totalLoad)),
             ],
           ),
           const SizedBox(height: 4),
@@ -99,7 +99,7 @@ class _CpuStateLegend extends StatelessWidget {
                 children: [
                   CircleAvatar(radius: 6, backgroundColor: e.color),
                   Text(
-                    e.getName(),
+                    e.displayName(context),
                     overflow: TextOverflow.ellipsis,
                     style: AppFonts.bodyMedium.copyWith(color: Colors.white),
                   ).withPaddingSymmetric(horizontal: 8),

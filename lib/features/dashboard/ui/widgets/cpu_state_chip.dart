@@ -3,6 +3,7 @@ import 'package:pulse/core/extensions/widgetx.dart';
 import 'package:pulse/core/theme/app_colors.dart';
 import 'package:pulse/core/theme/app_fonts.dart';
 import 'package:pulse/features/dashboard/domain/enums/cpu_state.dart';
+import 'package:pulse/features/dashboard/ui/extensions/cpu_state_ext.dart';
 
 class CpuStateChip extends StatelessWidget {
   final CpuState cpuState;
@@ -21,7 +22,7 @@ class CpuStateChip extends StatelessWidget {
         children: [
           CircleAvatar(radius: 6, backgroundColor: cpuState.color),
           Text(
-            cpuState.getName(),
+            cpuState.displayName(context),
             style: AppFonts.bodyMedium.copyWith(color: Colors.white),
           ).withPaddingSymmetric(horizontal: 8),
         ],

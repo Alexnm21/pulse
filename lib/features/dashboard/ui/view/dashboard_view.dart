@@ -15,6 +15,7 @@ import 'package:pulse/features/dashboard/domain/entities/memory_entity.dart';
 import 'package:pulse/features/dashboard/domain/entities/storage_entity.dart';
 import 'package:pulse/features/dashboard/domain/enums/cpu_state.dart';
 import 'package:pulse/features/dashboard/ui/bloc/dashboard_bloc.dart';
+import 'package:pulse/features/dashboard/ui/extensions/cpu_state_ext.dart';
 import 'package:pulse/features/dashboard/ui/widgets/cpu_state_chip.dart';
 import 'package:pulse/features/dashboard/ui/widgets/memory_row.dart';
 import 'package:pulse/features/dashboard/ui/widgets/temperature_sparkline.dart';
