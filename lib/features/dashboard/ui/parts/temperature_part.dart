@@ -28,7 +28,9 @@ class TemperaturePart extends StatelessWidget {
             children: [
               Text(
                 'dashboard.temperature.title'.tr().toUpperCase(),
-                style: AppFonts.bodyMedium,
+                style: AppFonts.bodyMedium.copyWith(
+                  color: AppColors.textSecondary,
+                ),
               ),
               const SizedBox(height: 4),
               Text(

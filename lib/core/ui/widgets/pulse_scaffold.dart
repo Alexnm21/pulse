@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse/core/theme/app_colors.dart';
 
 class PulseScaffold extends StatelessWidget {
   final Widget body;
@@ -13,7 +14,7 @@ class PulseScaffold extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xFF242528), Color(0xFF0A0A0B)],
+          colors: [AppColors.cardBackground, Color(0xFF0A0A0B)],
         ),
       ),
       child: Scaffold(

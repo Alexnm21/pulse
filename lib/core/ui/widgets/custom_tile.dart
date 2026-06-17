@@ -32,7 +32,7 @@ class _CustomTileState extends State<CustomTile> {
         margin: const EdgeInsets.symmetric(vertical: 6),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: const Color(0xFFADC6FF).withValues(alpha: _getOpacity()),
+          color: AppColors.selectedColor.withValues(alpha: _getOpacity()),
         ),
         child: ListTile(
           onTap: widget.onPressed,

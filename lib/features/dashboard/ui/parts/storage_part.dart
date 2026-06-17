@@ -28,7 +28,9 @@ class StoragePart extends StatelessWidget {
             children: [
               Text(
                 'dashboard.storage.title'.tr().toUpperCase(),
-                style: AppFonts.bodyMedium,
+                style: AppFonts.bodyMedium.copyWith(
+                  color: AppColors.textSecondary,
+                ),
               ),
               const SizedBox(height: 4),
               Text(

@@ -12,12 +12,12 @@ class AppTheme {
       brightness: Brightness.dark,
       primaryColor: AppColors.primary,
 
-      scaffoldBackgroundColor: const Color(0xFF121212),
+      scaffoldBackgroundColor: AppColors.scaffoldBackground,
       colorScheme: ColorScheme.dark(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         error: AppColors.error,
-        surface: const Color(0xFF1E1E1E),
+        surface: AppColors.surfaceDark,
       ),
       textTheme: TextTheme(
         headlineLarge: AppFonts.h1.copyWith(color: Colors.white),
@@ -28,8 +28,8 @@ class AppTheme {
         bodySmall: AppFonts.bodySmall.copyWith(color: Colors.white70),
         labelLarge: AppFonts.labelText.copyWith(color: Colors.white70),
       ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF1E1E1E),
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.surfaceDark,
         foregroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
@@ -48,7 +48,7 @@ class AppTheme {
         ),
 
         selectedColor: Colors.white,
-        selectedTileColor: const Color(0xFF2C2C2E),
+        selectedTileColor: AppColors.selectedTileColor,
         tileColor: Colors.transparent,
       ),
       dividerTheme: DividerThemeData(

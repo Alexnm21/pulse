@@ -25,7 +25,10 @@ class CpuPart extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          Text(cpu.name, style: AppFonts.bodySmall),
+          Text(
+            cpu.name,
+            style: AppFonts.bodySmall.copyWith(color: AppColors.textSecondary),
+          ),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
