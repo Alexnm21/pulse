@@ -55,7 +55,10 @@ void _initUseCases() {
 
 void _initBlocs() {
   sl.registerLazySingleton(() => MainBloc());
-  sl.registerLazySingleton(
+  // Factory so a new instance is created each time the user navigates to
+  // the dashboard view. The previous instance is closed and its polling timer
+  // is cancelled when the user leaves. A singleton would keep polling forever.
+  sl.registerFactory(
     () => DashboardBloc(
       getCpuUsage: sl(),
       getMemoryUsage: sl(),
