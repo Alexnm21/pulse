@@ -98,6 +98,32 @@ class DashboardView extends StatelessWidget {
                     );
                   }
 
+                  if (state is DashboardError) {
+                    return Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            state.message,
+                            style: AppFonts.bodyMedium.copyWith(
+                              color: AppColors.critical,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 16),
+                          FilledButton.icon(
+                            onPressed: () =>
+                                context.read<DashboardBloc>().add(
+                                      StartCpuMonitoringEvent(),
+                                    ),
+                            icon: const Icon(Icons.refresh),
+                            label: const Text('Retry'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
                   return const CircularProgressIndicator();
                 },
               ),
