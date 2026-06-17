@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
       providers: [BlocProvider.value(value: di.sl<MainBloc>())],
       child: MaterialApp(
         title: 'Pulse',
+        debugShowCheckedModeBanner: false,
         theme: AppTheme.appTheme,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
