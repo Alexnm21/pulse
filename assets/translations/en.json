@@ -1,0 +1,41 @@
+{
+  "title": "Pulse",
+  "main": {
+    "dashboard": "Dashboard",
+    "processes": "Processes",
+    "thermal": "Thermal",
+    "cleaner": "Cleaner"
+  },
+  "dashboard": {
+    "cpu": {
+      "title": "CPU Core Usage",
+      "load": "Load",
+      "user": "User",
+      "system": "System",
+      "idle": "Idle",
+      "state": {
+        "load_state": "Load State",
+        "normal": "Normal",
+        "moderately": "Moderately",
+        "critical": "Critical",
+        "inactive": "Inactive"
+      }
+    },
+    "memory": {
+      "title": "Memory Pressure",
+      "app": "App Memory",
+      "wired": "Wired Memory",
+      "compressed": "Compressed Memory"
+      
+    },
+    "temperature": {
+      "title": "System Temperature"
+    },
+    "storage": {
+      "title": "Storage Usage",
+      "total": "Total Storage",
+      "used": "Used Storage",
+      "free": "Free Storage"
+    }
+  }
+}

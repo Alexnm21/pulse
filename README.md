@@ -1,17 +1,90 @@
-# pulse
+# Pulse
 
-A new Flutter project.
+A real-time macOS system monitor built with Flutter Desktop.
+
+![Dashboard screenshot](assets/screenshots/dashboard.png)
+
+## Features
+
+- **Dashboard** — real-time CPU load (circular gauge), memory usage (horizontal bar + breakdown), storage info, and temperature with sparkline history
+- **Sidebar navigation** — switch between Dashboard, Processes, Thermal, and Cleaner views with animated transitions
+- **Live polling** — all system metrics refresh every second via native macOS APIs through Flutter MethodChannels
+- **Dark theme** — glassmorphism cards with custom gradient background
+
+### Planned
+
+- Processes view (running process list)
+- Thermal view (throttling state)
+- Cleaner view (cache and temp file cleanup)
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Framework** | Flutter Desktop (macOS) |
+| **State management** | flutter_bloc (Bloc pattern) |
+| **Architecture** | Clean Architecture (data / domain / ui) |
+| **Dependency injection** | get_it (lazy singletons + factories) |
+| **Localization** | easy_localization (English) |
+| **Icons** | flutter_svg (custom SVG set) |
+| **Native bridge** | Flutter MethodChannel (Swift) |
+| **Target** | macOS 10.15+ (sandboxed) |
+
+## Architecture
+
+```
+lib/
+├── core/                     # Shared across features
+│   ├── dependency_injection/ # GetIt registrations
+│   ├── domain/enums/         # Cross-cutting enums
+│   ├── extensions/           # doublex, widgetx
+│   ├── theme/                # Colors, fonts, ThemeData
+│   └── ui/widgets/           # Reusable widgets
+│
+└── features/
+    ├── dashboard/            # Fully implemented
+    │   ├── data/             # Datasources, models, repos
+    │   ├── domain/           # Entities, use cases, repo interfaces
+    │   └── ui/               # Bloc, view, parts, widgets
+    │
+    ├── main/                 # Navigation shell
+    │   └── ui/               # Bloc, page, sidebar
+    │
+    ├── cleaner/              # Stub
+    ├── processes/            # Stub
+    └── thermal/              # Stub
+```
+
+Each feature follows the same data flow: **UI → Bloc → UseCase → Repository → DataSource → MethodChannel → macOS**.
+
+## Requirements
+
+- macOS 10.15 or later
+- Flutter SDK 3.11+
+- Xcode 15+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+```bash
+# Clone the repository
+git clone https://github.com/your-username/pulse.git
+cd pulse
 
-A few resources to get you started if this is your first Flutter project:
+# Install dependencies
+flutter pub get
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+# Run on macOS
+flutter run -d macos
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Build
+
+```bash
+flutter build macos
+```
+
+The app is sandboxed by default (`com.apple.security.app-sandbox`) and does not require extra entitlements.
+
+## Project Status
+
+**Active development.** The Dashboard feature is complete and functional. Processes, Thermal, and Cleaner views are stubs awaiting implementation.
