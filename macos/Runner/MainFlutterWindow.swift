@@ -35,5 +35,24 @@ public class MainFlutterWindow: NSWindow {
             else { result(FlutterError(code: "ERR", message: "Memory falló", details: nil)) }
         }
     }
+
+    let temperatureChannel = FlutterMethodChannel(name: "com.pulse.app/temperature", binaryMessenger: binaryMessenger)
+    temperatureChannel.setMethodCallHandler { (call, result) in
+        if call.method == "getTemperature" {
+            let temp = TemperatureService.shared.getSystemTemperature()
+            result(temp)
+        }
+    }
+
+    let storageChannel = FlutterMethodChannel(name: "com.pulse.app/storage", binaryMessenger: binaryMessenger)
+    storageChannel.setMethodCallHandler { (call, result) in
+        if call.method == "getStorageUsage" {
+        if let data = StorageService.shared.getStorageUsage() {
+            result(data)
+        } else {
+            result(FlutterError(code: "ERR", message: "Storage falló", details: nil))
+        }
+    }
+}
   }
 }

@@ -27,6 +27,15 @@
       "wired": "Wired Memory",
       "compressed": "Compressed Memory"
       
+    },
+    "temperature": {
+      "title": "System Temperature"
+    },
+    "storage": {
+      "title": "Storage Usage",
+      "total": "Total Storage",
+      "used": "Used Storage",
+      "free": "Free Storage"
     }
   }
 }

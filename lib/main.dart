@@ -15,8 +15,8 @@ void main() async {
   await di.init();
 
   WindowOptions windowOptions = const WindowOptions(
-    size: Size(1280, 1024),
-    minimumSize: Size(800, 600),
+    size: Size(1680, 1024),
+    minimumSize: Size(1000, 600),
     center: true,
     titleBarStyle: TitleBarStyle.hidden,
   );

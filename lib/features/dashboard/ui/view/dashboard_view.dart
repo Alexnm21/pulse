@@ -12,13 +12,17 @@ import 'package:pulse/core/ui/widgets/horizontal_progress_monitor.dart';
 import 'package:pulse/core/ui/widgets/svg_icon.dart';
 import 'package:pulse/features/dashboard/domain/entities/cpu_entity.dart';
 import 'package:pulse/features/dashboard/domain/entities/memory_entity.dart';
+import 'package:pulse/features/dashboard/domain/entities/storage_entity.dart';
 import 'package:pulse/features/dashboard/domain/enums/cpu_state.dart';
 import 'package:pulse/features/dashboard/ui/bloc/dashboard_bloc.dart';
 import 'package:pulse/features/dashboard/ui/widgets/cpu_state_chip.dart';
 import 'package:pulse/features/dashboard/ui/widgets/memory_row.dart';
+import 'package:pulse/features/dashboard/ui/widgets/temperature_sparkline.dart';
 
 part '../parts/cpu_part.dart';
 part '../parts/memory_part.dart';
+part '../parts/storage_part.dart';
+part '../parts/temperature_part.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -32,19 +36,60 @@ class DashboardView extends StatelessWidget {
           return Scaffold(
             backgroundColor: Colors.transparent,
             body: Center(
-              child: BlocBuilder<DashboardBloc, DashboardState>(
+              child: BlocConsumer<DashboardBloc, DashboardState>(
+                listenWhen: (previous, current) =>
+                    previous is! DashboardError && current is DashboardError,
+                listener: (context, state) {
+                  if (state is DashboardError) {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Error'),
+                        content: Text(state.message),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                },
                 builder: (context, state) {
                   if (state is DashboardLoaded) {
                     return Column(
                       children: [
+                        IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Expanded(
+                                flex: 65,
+                                child: CpuPart(cpu: state.cpu),
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                flex: 35,
+                                child: MemoryPart(data: state.memory),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(flex: 65, child: CpuPart(cpu: state.cpu)),
+                            Expanded(
+                              flex: 65,
+                              child: TemperaturePart(
+                                temperature: state.temperature,
+                              ),
+                            ),
                             const SizedBox(width: 16),
                             Expanded(
                               flex: 35,
-                              child: MemoryPart(data: state.memory),
+                              child: StoragePart(storage: state.storage),
                             ),
                           ],
                         ),

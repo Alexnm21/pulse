@@ -92,6 +92,7 @@ class _CpuStateLegend extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ...CpuState.values.map(
               (e) => Row(
@@ -99,6 +100,7 @@ class _CpuStateLegend extends StatelessWidget {
                   CircleAvatar(radius: 6, backgroundColor: e.color),
                   Text(
                     e.getName(),
+                    overflow: TextOverflow.ellipsis,
                     style: AppFonts.bodyMedium.copyWith(color: Colors.white),
                   ).withPaddingSymmetric(horizontal: 8),
                   Text(
@@ -106,7 +108,7 @@ class _CpuStateLegend extends StatelessWidget {
                     style: AppFonts.bodyMedium.copyWith(
                       color: AppColors.unselectedColor,
                     ),
-                  ).withPaddingOnly(right: 32),
+                  ),
                 ],
               ),
             ),
