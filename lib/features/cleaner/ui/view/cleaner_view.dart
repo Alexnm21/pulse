@@ -5,6 +5,6 @@ class CleanerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Column(children: [Text("Cleaner")]));
+    return const Scaffold(body: Column(children: [Text('Cleaner')]));
   }
 }

@@ -27,7 +27,7 @@ class Sidebar extends StatelessWidget {
       color: AppColors.sidebarBackground,
       child: Column(
         children: [
-          Text('Pulse', style: AppFonts.h1).withPaddingOnly(bottom: 25),
+          const Text('Pulse', style: AppFonts.h1).withPaddingOnly(bottom: 25),
           ...NavigationItems.values.map((e) => _SidebarTile(item: e)),
         ],
       ),

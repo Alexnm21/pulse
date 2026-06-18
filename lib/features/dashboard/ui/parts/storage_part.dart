@@ -19,7 +19,7 @@ class StoragePart extends StatelessWidget {
               color: AppColors.chipColor,
               border: Border.all(color: AppColors.white010),
             ),
-            child: SvgIcon(name: 'storage', color: AppColors.selectedColor),
+            child: const SvgIcon(name: 'storage', color: AppColors.selectedColor),
           ),
 
           Column(

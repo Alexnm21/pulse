@@ -19,7 +19,7 @@ class TemperaturePart extends StatelessWidget {
               color: AppColors.chipColor,
               border: Border.all(color: AppColors.white010),
             ),
-            child: SvgIcon(name: 'temperature', color: AppColors.critical),
+            child: const SvgIcon(name: 'temperature', color: AppColors.critical),
           ),
 
           Column(
@@ -39,7 +39,7 @@ class TemperaturePart extends StatelessWidget {
               ),
             ],
           ).withPaddingOnly(left: 16),
-          if (temperature.length > 1) Spacer(),
+          if (temperature.length > 1) const Spacer(),
           if (temperature.length > 1)
             TemperatureSparkline(dataPoints: temperature),
         ],
