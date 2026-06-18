@@ -13,7 +13,7 @@ class AppTheme {
       primaryColor: AppColors.primary,
 
       scaffoldBackgroundColor: AppColors.scaffoldBackground,
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         error: AppColors.error,
@@ -28,7 +28,7 @@ class AppTheme {
         bodySmall: AppFonts.bodySmall.copyWith(color: Colors.white70),
         labelLarge: AppFonts.labelText.copyWith(color: Colors.white70),
       ),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.surfaceDark,
         foregroundColor: Colors.white,
         elevation: 0,

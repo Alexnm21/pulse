@@ -14,13 +14,13 @@ class CpuPart extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgIcon(
+              const SvgIcon(
                 name: 'cpu',
                 color: AppColors.selectedColor,
               ).withPaddingOnly(right: 8),
               Text('dashboard.cpu.title'.tr(), style: AppFonts.bodyLarge),
 
-              Spacer(),
+              const Spacer(),
               CpuStateChip(cpuState: CpuStateX.fromLoad(cpu.totalLoad)),
             ],
           ),
@@ -50,7 +50,7 @@ class CpuPart extends StatelessWidget {
             ],
           ),
           const Divider().withPaddingOnly(bottom: 16, top: 24),
-          _CpuStateLegend(),
+          const _CpuStateLegend(),
         ],
       ),
     );

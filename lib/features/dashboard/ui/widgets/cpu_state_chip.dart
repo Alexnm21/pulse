@@ -16,7 +16,7 @@ class CpuStateChip extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: AppColors.chipColor,
-        border: Border.all(color: Colors.white.withValues(alpha: 0.12)),
+        border: Border.all(color: AppColors.white012),
       ),
       child: Row(
         children: [

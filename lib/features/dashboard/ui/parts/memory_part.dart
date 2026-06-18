@@ -11,7 +11,7 @@ class MemoryPart extends StatelessWidget {
         children: [
           Row(
             children: [
-              SvgIcon(
+              const SvgIcon(
                 name: 'memory',
                 color: AppColors.critical,
               ).withPaddingOnly(right: 8),

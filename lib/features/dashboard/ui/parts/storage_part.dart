@@ -17,9 +17,9 @@ class StoragePart extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
               color: AppColors.chipColor,
-              border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+              border: Border.all(color: AppColors.white010),
             ),
-            child: SvgIcon(name: 'storage', color: AppColors.selectedColor),
+            child: const SvgIcon(name: 'storage', color: AppColors.selectedColor),
           ),
 
           Column(

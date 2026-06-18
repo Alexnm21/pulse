@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:pulse/core/theme/app_colors.dart';
 
 class CrystalCard extends StatelessWidget {
   final Widget child;
@@ -26,9 +27,9 @@ class CrystalCard extends StatelessWidget {
           padding: padding ?? const EdgeInsets.all(20.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRadius),
-            color: Colors.white.withValues(alpha: 0.06),
+            color: AppColors.white006,
             border: Border.all(
-              color: Colors.white.withValues(alpha: 0.12),
+              color: AppColors.white012,
               width: 1.0,
             ),
           ),
