@@ -34,4 +34,16 @@ class AppColors {
   // UI component colors
   static const Color selectedColor = Color(0xFFADC6FF);
   static const Color unselectedColor = Color(0xFFC1C6D7);
+
+  // Pre-computed white variants with opacity (avoids Color.withValues on every build)
+  static const Color white004 = Color(0x0AFFFFFF);
+  static const Color white006 = Color(0x0FFFFFFF);
+  static const Color white008 = Color(0x14FFFFFF);
+  static const Color white010 = Color(0x1AFFFFFF);
+  static const Color white012 = Color(0x1FFFFFFF);
+  static const Color white050 = Color(0x80FFFFFF);
+
+  // Pre-computed selectedColor variants with opacity
+  static const Color selectedColor010 = Color(0x1AADC6FF);
+  static const Color selectedColor020 = Color(0x33ADC6FF);
 }

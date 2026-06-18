@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulse/core/theme/app_colors.dart';
 
 class HorizontalProgressMonitor extends StatelessWidget {
   final double value;
@@ -46,7 +47,7 @@ class _HorizontalLinearProgressPainter extends CustomPainter {
     canvas.drawRRect(trackRRect, trackPaint);
 
     final Paint borderPaint = Paint()
-      ..color = Colors.white.withValues(alpha: 0.04)
+      ..color = AppColors.white004
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
     canvas.drawRRect(trackRRect, borderPaint);

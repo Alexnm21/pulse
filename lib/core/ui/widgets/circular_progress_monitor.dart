@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pulse/core/theme/app_colors.dart';
 
 class CircularProgressMonitor extends StatelessWidget {
   final double value;
@@ -36,7 +37,7 @@ class CircularProgressMonitor extends StatelessWidget {
                   painter: _TrackAndProgressPainter(
                     percentage: animatedValue,
                     progressColor: progressColor,
-                    trackColor: Colors.white.withValues(alpha: 0.08),
+                    trackColor: AppColors.white008,
                     strokeWidth: size * 0.09,
                   ),
                 ),
@@ -58,7 +59,7 @@ class CircularProgressMonitor extends StatelessWidget {
                   Text(
                     title.toUpperCase(),
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.5),
+                      color: AppColors.white050,
                       fontSize: size * 0.07,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.5,

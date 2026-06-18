@@ -20,7 +20,7 @@ class CpuPart extends StatelessWidget {
               ).withPaddingOnly(right: 8),
               Text('dashboard.cpu.title'.tr(), style: AppFonts.bodyLarge),
 
-              Spacer(),
+              const Spacer(),
               CpuStateChip(cpuState: CpuStateX.fromLoad(cpu.totalLoad)),
             ],
           ),

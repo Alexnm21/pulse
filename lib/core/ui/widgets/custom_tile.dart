@@ -32,7 +32,11 @@ class _CustomTileState extends State<CustomTile> {
         margin: const EdgeInsets.symmetric(vertical: 6),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: AppColors.selectedColor.withValues(alpha: _getOpacity()),
+          color: widget.selected
+              ? AppColors.selectedColor020
+              : isHover
+                  ? AppColors.selectedColor010
+                  : Colors.transparent,
         ),
         child: ListTile(
           onTap: widget.onPressed,
@@ -47,11 +51,5 @@ class _CustomTileState extends State<CustomTile> {
         ),
       ),
     );
-  }
-
-  double _getOpacity() {
-    if (widget.selected) return 0.2;
-    if (isHover) return 0.1;
-    return 0;
   }
 }
