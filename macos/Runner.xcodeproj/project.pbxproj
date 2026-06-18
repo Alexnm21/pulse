@@ -28,6 +28,7 @@
 		33CC10F32044A3C60003C045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F22044A3C60003C045 /* Assets.xcassets */; };
 		33CC10F62044A3C60003C045 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F42044A3C60003C045 /* MainMenu.xib */; };
 		33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC11122044BFA00003C045 /* MainFlutterWindow.swift */; };
+		6092BFFD2DCBB12FDBFBEA65 /* ProcessesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656BAD2FB9A4EF85AB8E570D /* ProcessesService.swift */; };
 		A91B1A802FD806520025A0FE /* MemoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B1A7F2FD806520025A0FE /* MemoryService.swift */; };
 		A9CEB3022FD0C1AB00EA7584 /* CpuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CEB3012FD0C1AB00EA7584 /* CpuService.swift */; };
 		A9DFE83A2FD843D700F972E9 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DFE8392FD843D000F972E9 /* StorageService.swift */; };
@@ -86,6 +87,7 @@
 		33E51914231749380026EE4D /* Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Release.entitlements; sourceTree = "<group>"; };
 		33E5194F232828860026EE4D /* AppInfo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppInfo.xcconfig; sourceTree = "<group>"; };
 		61F6C17012379594D0811A79 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		656BAD2FB9A4EF85AB8E570D /* ProcessesService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProcessesService.swift; sourceTree = "<group>"; };
 		69031C707000B133234BDA62 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				A9CEB3012FD0C1AB00EA7584 /* CpuService.swift */,
 				A91B1A7F2FD806520025A0FE /* MemoryService.swift */,
 				A9DFE83B2FD8440000F972E9 /* TemperatureService.swift */,
+				656BAD2FB9A4EF85AB8E570D /* ProcessesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				33CC10F12044A3C60003C045 /* AppDelegate.swift in Sources */,
 				A9DFE83C2FD8440000F972E9 /* TemperatureService.swift in Sources */,
 				335BBD1B22A9A15E00E9071D /* GeneratedPluginRegistrant.swift in Sources */,
+				6092BFFD2DCBB12FDBFBEA65 /* ProcessesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

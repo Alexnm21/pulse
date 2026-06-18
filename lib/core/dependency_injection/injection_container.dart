@@ -17,6 +17,11 @@ import 'package:pulse/features/dashboard/domain/usecases/get_storage_usage.dart'
 import 'package:pulse/features/dashboard/domain/usecases/get_temperature.dart';
 import 'package:pulse/features/dashboard/ui/bloc/dashboard_bloc.dart';
 import 'package:pulse/features/main/ui/bloc/main_bloc.dart';
+import 'package:pulse/features/processes/data/datasources/processes_local_datasource.dart';
+import 'package:pulse/features/processes/data/repositories/processes_repository_impl.dart';
+import 'package:pulse/features/processes/domain/repositories/processes_repository.dart';
+import 'package:pulse/features/processes/domain/usecases/get_processes.dart';
+import 'package:pulse/features/processes/ui/bloc/processes_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -29,10 +34,11 @@ Future<void> init() async {
 }
 
 void _initDataSources() {
-  sl.registerLazySingleton(() => CpuLocalDataSource());
-  sl.registerLazySingleton(() => MemoryLocalDataSource());
-  sl.registerLazySingleton(() => TemperatureLocalDataSource());
-  sl.registerLazySingleton(() => StorageLocalDataSource());
+  sl.registerLazySingleton(CpuLocalDataSource.new);
+  sl.registerLazySingleton(MemoryLocalDataSource.new);
+  sl.registerLazySingleton(TemperatureLocalDataSource.new);
+  sl.registerLazySingleton(StorageLocalDataSource.new);
+  sl.registerLazySingleton(ProcessesLocalDataSource.new);
 }
 
 void _initRepositories() {
@@ -44,6 +50,9 @@ void _initRepositories() {
   sl.registerLazySingleton<StorageRepository>(
     () => StorageRepositoryImpl(sl()),
   );
+  sl.registerLazySingleton<ProcessesRepository>(
+    () => ProcessesRepositoryImpl(sl()),
+  );
 }
 
 void _initUseCases() {
@@ -51,12 +60,13 @@ void _initUseCases() {
   sl.registerLazySingleton(() => GetMemoryUsageUseCase(sl()));
   sl.registerLazySingleton(() => GetTemperatureUseCase(sl()));
   sl.registerLazySingleton(() => GetStorageUsageUseCase(sl()));
+  sl.registerLazySingleton(() => GetProcessesUseCase(sl()));
 }
 
 void _initBlocs() {
-  sl.registerLazySingleton(() => MainBloc());
+  sl.registerLazySingleton(MainBloc.new);
   // Factory so a new instance is created each time the user navigates to
-  // the dashboard view. The previous instance is closed and its polling timer
+  // the view. The previous instance is closed and its polling timer
   // is cancelled when the user leaves. A singleton would keep polling forever.
   sl.registerFactory(
     () => DashboardBloc(
@@ -64,6 +74,11 @@ void _initBlocs() {
       getMemoryUsage: sl(),
       getTemperature: sl(),
       getStorageUsage: sl(),
+    ),
+  );
+  sl.registerFactory(
+    () => ProcessesBloc(
+      getProcesses: sl(),
     ),
   );
 }

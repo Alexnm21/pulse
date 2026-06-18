@@ -1,9 +1,4 @@
 class MemoryEntity {
-  final double totalMemory;
-  final double usedMemory;
-  final double appMemory;
-  final double wiredMemory;
-  final double compressedMemory;
 
   const MemoryEntity({
     required this.totalMemory,
@@ -12,6 +7,11 @@ class MemoryEntity {
     required this.wiredMemory,
     required this.compressedMemory,
   });
+  final double totalMemory;
+  final double usedMemory;
+  final double appMemory;
+  final double wiredMemory;
+  final double compressedMemory;
 
   @override
   String toString() {

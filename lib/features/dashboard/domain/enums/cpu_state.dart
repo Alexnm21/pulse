@@ -4,13 +4,13 @@ enum CpuState {
   critical(name: 'dashboard.cpu.state.critical', range: '86 - 100%'),
   inactive(name: 'dashboard.cpu.state.inactive', range: '< 5%');
 
-  final String name;
-  final String range;
-
   const CpuState({
     required this.name,
     required this.range,
   });
+
+  final String name;
+  final String range;
 }
 
 extension CpuStateX on CpuState {

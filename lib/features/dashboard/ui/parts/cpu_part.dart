@@ -1,9 +1,9 @@
 part of '../view/dashboard_view.dart';
 
 class CpuPart extends StatelessWidget {
-  final CpuEntity cpu;
 
   const CpuPart({super.key, required this.cpu});
+  final CpuEntity cpu;
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +58,9 @@ class CpuPart extends StatelessWidget {
 }
 
 class _CpuColumn extends StatelessWidget {
+  const _CpuColumn({required this.title, required this.value});
   final String title;
   final double value;
-  const _CpuColumn({required this.title, required this.value});
 
   @override
   Widget build(BuildContext context) {

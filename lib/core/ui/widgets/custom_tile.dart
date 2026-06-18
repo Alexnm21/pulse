@@ -3,10 +3,6 @@ import 'package:pulse/core/theme/app_colors.dart';
 import 'package:pulse/core/ui/widgets/svg_icon.dart';
 
 class CustomTile extends StatefulWidget {
-  final String icon;
-  final String label;
-  final Function() onPressed;
-  final bool selected;
   const CustomTile({
     super.key,
     required this.icon,
@@ -14,6 +10,10 @@ class CustomTile extends StatefulWidget {
     required this.onPressed,
     required this.selected,
   });
+  final String icon;
+  final String label;
+  final Function() onPressed;
+  final bool selected;
 
   @override
   State<CustomTile> createState() => _CustomTileState();

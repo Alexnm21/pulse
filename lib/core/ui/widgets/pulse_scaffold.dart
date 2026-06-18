@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pulse/core/theme/app_colors.dart';
 
 class PulseScaffold extends StatelessWidget {
-  final Widget body;
-  final PreferredSizeWidget? appBar;
 
   const PulseScaffold({super.key, required this.body, this.appBar});
+  final Widget body;
+  final PreferredSizeWidget? appBar;
 
   @override
   Widget build(BuildContext context) {

@@ -6,8 +6,8 @@ import 'package:pulse/features/dashboard/domain/enums/cpu_state.dart';
 import 'package:pulse/features/dashboard/ui/extensions/cpu_state_ext.dart';
 
 class CpuStateChip extends StatelessWidget {
-  final CpuState cpuState;
   const CpuStateChip({super.key, required this.cpuState});
+  final CpuState cpuState;
 
   @override
   Widget build(BuildContext context) {

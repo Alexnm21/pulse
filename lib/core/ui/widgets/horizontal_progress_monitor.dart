@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pulse/core/theme/app_colors.dart';
 
 class HorizontalProgressMonitor extends StatelessWidget {
-  final double value;
-  final double height;
 
   const HorizontalProgressMonitor({
     super.key,
     required this.value,
     this.height = 14.0,
   });
+  final double value;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +30,8 @@ class HorizontalProgressMonitor extends StatelessWidget {
 }
 
 class _HorizontalLinearProgressPainter extends CustomPainter {
+
+  _HorizontalLinearProgressPainter({required this.percentage});
   static const _gradient = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
@@ -38,8 +40,6 @@ class _HorizontalLinearProgressPainter extends CustomPainter {
   );
 
   final double percentage;
-
-  _HorizontalLinearProgressPainter({required this.percentage});
 
   @override
   void paint(Canvas canvas, Size size) {

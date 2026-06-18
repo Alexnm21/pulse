@@ -13,7 +13,7 @@ class TemperatureLocalDataSource {
 
       return result;
     } catch (e) {
-      throw Exception("Error interacting with macOS native channel: $e");
+      throw Exception('Error interacting with macOS native channel: $e');
     }
   }
 }

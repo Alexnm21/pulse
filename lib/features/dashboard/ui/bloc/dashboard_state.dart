@@ -7,10 +7,6 @@ class DashboardInitial extends DashboardState {}
 class DashboardLoading extends DashboardState {}
 
 class DashboardLoaded extends DashboardState {
-  final CpuEntity cpu;
-  final MemoryEntity memory;
-  final StorageEntity storage;
-  final List<double> temperature;
 
   DashboardLoaded({
     required this.cpu,
@@ -18,10 +14,14 @@ class DashboardLoaded extends DashboardState {
     required this.storage,
     required this.temperature,
   });
+  final CpuEntity cpu;
+  final MemoryEntity memory;
+  final StorageEntity storage;
+  final List<double> temperature;
 }
 
 class DashboardError extends DashboardState {
-  final String message;
 
   DashboardError({required this.message});
+  final String message;
 }

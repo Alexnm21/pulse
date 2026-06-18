@@ -1,8 +1,8 @@
 part of '../view/dashboard_view.dart';
 
 class StoragePart extends StatelessWidget {
-  final StorageEntity storage;
   const StoragePart({super.key, required this.storage});
+  final StorageEntity storage;
 
   @override
   Widget build(BuildContext context) {

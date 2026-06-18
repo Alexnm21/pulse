@@ -5,10 +5,6 @@ abstract class DashboardEvent {}
 class StartCpuMonitoringEvent extends DashboardEvent {}
 
 class SystemTickEvent extends DashboardEvent {
-  final CpuEntity cpu;
-  final MemoryEntity memory;
-  final StorageEntity storage;
-  final double temperature;
 
   SystemTickEvent({
     required this.cpu,
@@ -16,10 +12,14 @@ class SystemTickEvent extends DashboardEvent {
     required this.temperature,
     required this.storage,
   });
+  final CpuEntity cpu;
+  final MemoryEntity memory;
+  final StorageEntity storage;
+  final double temperature;
 }
 
 class DashboardErrorEvent extends DashboardEvent {
-  final String message;
 
   DashboardErrorEvent({required this.message});
+  final String message;
 }

@@ -54,5 +54,13 @@ public class MainFlutterWindow: NSWindow {
         }
     }
 }
+
+    // * Processes Channel
+    let processesChannel = FlutterMethodChannel(name: "com.pulse.app/processes", binaryMessenger: binaryMessenger)
+    processesChannel.setMethodCallHandler { (call, result) in
+        if call.method == "getProcesses" {
+            result(ProcessesService.shared.getProcesses())
+        }
+    }
   }
 }

@@ -1,8 +1,8 @@
 part of '../page/main_page.dart';
 
 class _SidebarTile extends StatelessWidget {
-  final NavigationItems item;
   const _SidebarTile({required this.item});
+  final NavigationItems item;
 
   @override
   Widget build(BuildContext context) {

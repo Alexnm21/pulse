@@ -1,8 +1,8 @@
 part of '../view/dashboard_view.dart';
 
 class TemperaturePart extends StatelessWidget {
-  final List<double> temperature;
   const TemperaturePart({super.key, required this.temperature});
+  final List<double> temperature;
 
   @override
   Widget build(BuildContext context) {

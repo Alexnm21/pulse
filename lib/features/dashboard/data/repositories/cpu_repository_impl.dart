@@ -4,9 +4,9 @@ import '../../domain/entities/cpu_entity.dart';
 import '../../domain/repositories/cpu_repository.dart';
 
 class CpuRepositoryImpl implements CpuRepository {
-  final CpuLocalDataSource _localDataSource;
 
   const CpuRepositoryImpl(this._localDataSource);
+  final CpuLocalDataSource _localDataSource;
 
   @override
   Future<CpuEntity> getCpuUsage() async {
