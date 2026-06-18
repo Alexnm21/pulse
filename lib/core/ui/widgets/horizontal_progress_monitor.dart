@@ -30,6 +30,13 @@ class HorizontalProgressMonitor extends StatelessWidget {
 }
 
 class _HorizontalLinearProgressPainter extends CustomPainter {
+  static const _gradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [Color(0xFF76E28E), Color(0xFFE9D460), Color(0xFFE05A47)],
+    stops: [0.0, 0.5, 1.0],
+  );
+
   final double percentage;
 
   _HorizontalLinearProgressPainter({required this.percentage});
@@ -61,15 +68,8 @@ class _HorizontalLinearProgressPainter extends CustomPainter {
       Radius.circular(size.height / 2),
     );
 
-    final Gradient gradient = LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: const [Color(0xFF76E28E), Color(0xFFE9D460), Color(0xFFE05A47)],
-      stops: const [0.0, 0.5, 1.0],
-    );
-
     final Paint progressPaint = Paint()
-      ..shader = gradient.createShader(
+      ..shader = _gradient.createShader(
         Rect.fromLTWH(0, 0, size.width, size.height),
       )
       ..style = PaintingStyle.fill;
