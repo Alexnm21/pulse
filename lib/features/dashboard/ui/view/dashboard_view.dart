@@ -32,104 +32,100 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<DashboardBloc>(),
-      child: Builder(
-        builder: (_) {
-          return Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Center(
-              child: BlocConsumer<DashboardBloc, DashboardState>(
-                listenWhen: (previous, current) =>
-                    previous is! DashboardError && current is DashboardError,
-                listener: (context, state) {
-                  if (state is DashboardError) {
-                    showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Error'),
-                        content: Text(state.message),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: const Text('OK'),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: BlocConsumer<DashboardBloc, DashboardState>(
+            listenWhen: (previous, current) =>
+                previous is! DashboardError && current is DashboardError,
+            listener: (context, state) {
+              if (state is DashboardError) {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Error'),
+                    content: Text(state.message),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            },
+            builder: (context, state) {
+              if (state is DashboardLoaded) {
+                return Column(
+                  children: [
+                    IntrinsicHeight(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Expanded(
+                            flex: 65,
+                            child: CpuPart(cpu: state.cpu),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            flex: 35,
+                            child: MemoryPart(data: state.memory),
                           ),
                         ],
                       ),
-                    );
-                  }
-                },
-                builder: (context, state) {
-                  if (state is DashboardLoaded) {
-                    return Column(
+                    ),
+                    const SizedBox(height: 16),
+
+                    Row(
                       children: [
-                        IntrinsicHeight(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Expanded(
-                                flex: 65,
-                                child: CpuPart(cpu: state.cpu),
-                              ),
-                              const SizedBox(width: 16),
-                              Expanded(
-                                flex: 35,
-                                child: MemoryPart(data: state.memory),
-                              ),
-                            ],
+                        Expanded(
+                          flex: 65,
+                          child: TemperaturePart(
+                            temperature: state.temperature,
                           ),
                         ),
-                        const SizedBox(height: 16),
-
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 65,
-                              child: TemperaturePart(
-                                temperature: state.temperature,
-                              ),
-                            ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              flex: 35,
-                              child: StoragePart(storage: state.storage),
-                            ),
-                          ],
+                        const SizedBox(width: 16),
+                        Expanded(
+                          flex: 35,
+                          child: StoragePart(storage: state.storage),
                         ),
                       ],
-                    );
-                  }
+                    ),
+                  ],
+                );
+              }
 
-                  if (state is DashboardError) {
-                    return Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            state.message,
-                            style: AppFonts.bodyMedium.copyWith(
-                              color: AppColors.critical,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          FilledButton.icon(
-                            onPressed: () =>
-                                context.read<DashboardBloc>().add(
-                                      StartCpuMonitoringEvent(),
-                                    ),
-                            icon: const Icon(Icons.refresh),
-                            label: const Text('Retry'),
-                          ),
-                        ],
+              if (state is DashboardError) {
+                return Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        state.message,
+                        style: AppFonts.bodyMedium.copyWith(
+                          color: AppColors.critical,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                    );
-                  }
+                      const SizedBox(height: 16),
+                      FilledButton.icon(
+                        onPressed: () =>
+                            context.read<DashboardBloc>().add(
+                                  StartCpuMonitoringEvent(),
+                                ),
+                        icon: const Icon(Icons.refresh),
+                        label: const Text('Retry'),
+                      ),
+                    ],
+                  ),
+                );
+              }
 
-                  return const CircularProgressIndicator();
-                },
-              ),
-            ).withPaddingAll(24),
-          );
-        },
+              return const CircularProgressIndicator();
+            },
+          ),
+        ).withPaddingAll(24),
       ),
     );
   }
