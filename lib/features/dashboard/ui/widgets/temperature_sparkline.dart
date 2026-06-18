@@ -14,15 +14,9 @@ class TemperatureSparkline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      tween: Tween<double>(begin: 0.0, end: 1.0),
-      duration: const Duration(milliseconds: 300),
-      builder: (context, value, child) {
-        return CustomPaint(
-          size: Size(width, height),
-          painter: _SparklinePainter(dataPoints: dataPoints),
-        );
-      },
+    return CustomPaint(
+      size: Size(width, height),
+      painter: _SparklinePainter(dataPoints: dataPoints),
     );
   }
 }
