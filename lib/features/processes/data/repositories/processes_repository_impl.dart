@@ -11,4 +11,9 @@ class ProcessesRepositoryImpl implements ProcessesRepository {
   Future<List<ProcessEntity>> getProcesses() async {
     return await _localDataSource.getProcesses();
   }
+
+  @override
+  Future<Map<String, dynamic>> killProcess(int pid) async {
+    return await _localDataSource.killProcess(pid);
+  }
 }

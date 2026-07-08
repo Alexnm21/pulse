@@ -13,6 +13,7 @@ class AppColors {
   static const Color scaffoldBackground = Color(0xFF121212);
   static const Color surfaceDark = Color(0xFF1E1E1E);
   static const Color cardBackground = Color(0xFF242528);
+  static const Color transparentCard = Color(0x33353535);
   static const Color selectedTileColor = Color(0xFF2C2C2E);
   static const Color sidebarBackground = Color(0xFF1D2021);
   static const Color chipColor = Color(0xFF2A2A2A);
@@ -24,12 +25,15 @@ class AppColors {
   // Text colors
   static const Color textPrimary = Color(0xFFE5E2E1);
   static const Color textSecondary = Color(0xFF86868B);
+  static const Color textDark = Color(0xFF002E69);
+  static const Color textWarning = Color(0xFF690005);
 
   // Accent & functional colors
   static const Color normal = Color(0xFF53E16F);
   static const Color moderately = Color(0xFFFFCC00);
   static const Color critical = Color(0xFFFF5545);
   static const Color error = Color(0xFFB00020);
+  static const Color warning = Color(0xFFFFB4AB);
 
   // UI component colors
   static const Color selectedColor = Color(0xFFADC6FF);
@@ -44,6 +48,6 @@ class AppColors {
   static const Color white050 = Color(0x80FFFFFF);
 
   // Pre-computed selectedColor variants with opacity
-  static const Color selectedColor010 = Color(0x1AADC6FF);
+  static const Color selectedColor010 = Color.fromARGB(26, 8, 11, 19);
   static const Color selectedColor020 = Color(0x33ADC6FF);
 }

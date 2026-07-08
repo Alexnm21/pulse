@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:pulse/core/theme/app_colors.dart';
 
 class HorizontalProgressMonitor extends StatelessWidget {
-
   const HorizontalProgressMonitor({
     super.key,
     required this.value,
     this.height = 14.0,
+    this.useGradient = true,
+    this.progressColor,
   });
   final double value;
   final double height;
+  final bool useGradient;
+  final Color? progressColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,11 @@ class HorizontalProgressMonitor extends StatelessWidget {
       builder: (context, animatedValue, child) {
         return CustomPaint(
           size: Size(double.infinity, height),
-          painter: _HorizontalLinearProgressPainter(percentage: animatedValue),
+          painter: _HorizontalLinearProgressPainter(
+            percentage: animatedValue,
+            useGradient: useGradient,
+            progressColor: progressColor ?? AppColors.selectedColor,
+          ),
         );
       },
     );
@@ -30,8 +37,11 @@ class HorizontalProgressMonitor extends StatelessWidget {
 }
 
 class _HorizontalLinearProgressPainter extends CustomPainter {
-
-  _HorizontalLinearProgressPainter({required this.percentage});
+  _HorizontalLinearProgressPainter({
+    required this.percentage,
+    required this.useGradient,
+    required this.progressColor,
+  });
   static const _gradient = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
@@ -40,6 +50,8 @@ class _HorizontalLinearProgressPainter extends CustomPainter {
   );
 
   final double percentage;
+  final bool useGradient;
+  final Color progressColor;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -68,11 +80,15 @@ class _HorizontalLinearProgressPainter extends CustomPainter {
       Radius.circular(size.height / 2),
     );
 
-    final Paint progressPaint = Paint()
-      ..shader = _gradient.createShader(
+    final Paint progressPaint = Paint()..style = PaintingStyle.fill;
+
+    if (useGradient) {
+      progressPaint.shader = _gradient.createShader(
         Rect.fromLTWH(0, 0, size.width, size.height),
-      )
-      ..style = PaintingStyle.fill;
+      );
+    } else {
+      progressPaint.color = progressColor;
+    }
 
     canvas.save();
     canvas.clipRRect(trackRRect);

@@ -21,6 +21,7 @@ import 'package:pulse/features/processes/data/datasources/processes_local_dataso
 import 'package:pulse/features/processes/data/repositories/processes_repository_impl.dart';
 import 'package:pulse/features/processes/domain/repositories/processes_repository.dart';
 import 'package:pulse/features/processes/domain/usecases/get_processes.dart';
+import 'package:pulse/features/processes/domain/usecases/kill_process.dart';
 import 'package:pulse/features/processes/ui/bloc/processes_bloc.dart';
 
 final sl = GetIt.instance;
@@ -61,6 +62,7 @@ void _initUseCases() {
   sl.registerLazySingleton(() => GetTemperatureUseCase(sl()));
   sl.registerLazySingleton(() => GetStorageUsageUseCase(sl()));
   sl.registerLazySingleton(() => GetProcessesUseCase(sl()));
+  sl.registerLazySingleton(() => KillProcessUseCase(sl()));
 }
 
 void _initBlocs() {
@@ -79,6 +81,7 @@ void _initBlocs() {
   sl.registerFactory(
     () => ProcessesBloc(
       getProcesses: sl(),
+      killProcess: sl(),
     ),
   );
 }

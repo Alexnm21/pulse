@@ -40,7 +40,7 @@ class AppFonts {
   static const TextStyle bodySmall = TextStyle(
     fontFamily: _fontFamily,
     fontSize: 12,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.normal,
   );
 
   static const TextStyle labelText = TextStyle(

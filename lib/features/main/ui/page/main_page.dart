@@ -23,13 +23,13 @@ class MainPage extends StatelessWidget {
             children: [
               const Sidebar(),
               Expanded(
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    child: Builder(
-                      key: ValueKey(state.selectedItem),
-                      builder: state.selectedItem.viewBuilder,
-                    ),
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 200),
+                  child: Builder(
+                    key: ValueKey(state.selectedItem),
+                    builder: state.selectedItem.viewBuilder,
                   ),
+                ),
               ),
             ],
           );

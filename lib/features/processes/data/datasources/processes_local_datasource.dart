@@ -17,4 +17,17 @@ class ProcessesLocalDataSource {
       throw Exception('Error interacting with macOS native channel: $e');
     }
   }
+
+  Future<Map<String, dynamic>> killProcess(int pid) async {
+    try {
+      final Map<dynamic, dynamic>? result = await _channel.invokeMapMethod(
+        'killProcess',
+        {'pid': pid},
+      );
+      if (result == null) throw Exception("Didn't receive kill result");
+      return result.map((key, value) => MapEntry(key.toString(), value));
+    } catch (e) {
+      throw Exception('Error killing process: $e');
+    }
+  }
 }
