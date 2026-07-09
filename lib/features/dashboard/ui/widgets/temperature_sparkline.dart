@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TemperatureSparkline extends StatelessWidget {
-  final List<double> dataPoints;
-  final double width;
-  final double height;
 
   const TemperatureSparkline({
     super.key,
@@ -11,6 +8,9 @@ class TemperatureSparkline extends StatelessWidget {
     this.width = 100.0,
     this.height = 40.0,
   });
+  final List<double> dataPoints;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class TemperatureSparkline extends StatelessWidget {
 }
 
 class _SparklinePainter extends CustomPainter {
-  final List<double> dataPoints;
 
   _SparklinePainter({required this.dataPoints});
+  final List<double> dataPoints;
 
   @override
   void paint(Canvas canvas, Size size) {

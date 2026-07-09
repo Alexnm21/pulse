@@ -54,5 +54,23 @@ public class MainFlutterWindow: NSWindow {
         }
     }
 }
+
+    // * Processes Channel
+    let processesChannel = FlutterMethodChannel(name: "com.pulse.app/processes", binaryMessenger: binaryMessenger)
+    processesChannel.setMethodCallHandler { (call, result) in
+        switch call.method {
+        case "getProcesses":
+            result(ProcessesService.shared.getProcesses())
+        case "killProcess":
+            guard let args = call.arguments as? [String: Any],
+                  let pid = args["pid"] as? Int32 else {
+                result(FlutterError(code: "ERR", message: "Invalid PID", details: nil))
+                return
+            }
+            result(ProcessesService.shared.killProcess(pid: pid))
+        default:
+            result(FlutterMethodNotImplemented)
+        }
+    }
   }
 }

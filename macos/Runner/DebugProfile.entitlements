@@ -8,5 +8,16 @@
 	<true/>
 	<key>com.apple.security.network.server</key>
 	<true/>
+	<key>com.apple.security.temporary-exception.apple-events</key>
+	<array>
+		<string>com.apple.systemevents</string>
+	</array>
+	<key>com.apple.security.scripting-targets</key>
+	<dict>
+		<key>com.apple.systemevents</key>
+		<array>
+			<string>com.apple.systemevents.command</string>
+		</array>
+	</dict>
 </dict>
 </plist>

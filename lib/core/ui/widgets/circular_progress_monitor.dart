@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:pulse/core/theme/app_colors.dart';
 
 class CircularProgressMonitor extends StatelessWidget {
-  final double value;
-  final String title;
-  final double size;
-  final Color progressColor;
 
   const CircularProgressMonitor({
     super.key,
@@ -16,6 +12,10 @@ class CircularProgressMonitor extends StatelessWidget {
     this.size = 200.0,
     this.progressColor = const Color(0xffa4bcff),
   });
+  final double value;
+  final String title;
+  final double size;
+  final Color progressColor;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class CircularProgressMonitor extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "${animatedValue.toStringAsFixed(1)}%",
+                    '${animatedValue.toStringAsFixed(1)}%',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: size * 0.22,
@@ -76,10 +76,6 @@ class CircularProgressMonitor extends StatelessWidget {
 }
 
 class _TrackAndProgressPainter extends CustomPainter {
-  final double percentage;
-  final Color progressColor;
-  final Color trackColor;
-  final double strokeWidth;
 
   _TrackAndProgressPainter({
     required this.percentage,
@@ -87,6 +83,10 @@ class _TrackAndProgressPainter extends CustomPainter {
     required this.trackColor,
     required this.strokeWidth,
   });
+  final double percentage;
+  final Color progressColor;
+  final Color trackColor;
+  final double strokeWidth;
 
   @override
   void paint(Canvas canvas, Size size) {

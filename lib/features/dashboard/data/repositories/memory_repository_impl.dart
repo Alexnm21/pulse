@@ -4,9 +4,9 @@ import 'package:pulse/features/dashboard/domain/repositories/memory_repository.d
 import '../datasources/memory_local_datasource.dart';
 
 class MemoryRepositoryImpl implements MemoryRepository {
-  final MemoryLocalDataSource _localDataSource;
 
   const MemoryRepositoryImpl(this._localDataSource);
+  final MemoryLocalDataSource _localDataSource;
 
   @override
   Future<MemoryEntity> getMemoryUsage() async {

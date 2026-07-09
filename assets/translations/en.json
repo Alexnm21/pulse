@@ -37,5 +37,18 @@
       "used": "Used Storage",
       "free": "Free Storage"
     }
+  },
+  "processes": {
+    "name": "Process Name",
+    "cpu": "CPU %",
+    "memory": "Memory",
+    "user": "User",
+    "kill": "Terminate",
+    "kill_confirm_title": "Terminate Process",
+    "kill_confirm_message": "Are you sure you want to terminate the process '{name}' (PID: {pid})? This could cause loss of unsaved data.",
+    "kill_success": "Process terminated successfully",
+    "kill_error": "Could not terminate process: {error}",
+    "kill_cancel": "Cancel",
+    "kill_confirm": "Terminate"
   }
 }

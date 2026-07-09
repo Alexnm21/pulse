@@ -5,9 +5,6 @@ import 'package:pulse/core/theme/app_colors.dart';
 import 'package:pulse/core/theme/app_fonts.dart';
 
 class MemoryRow extends StatelessWidget {
-  final Color color;
-  final String text;
-  final double value;
 
   const MemoryRow({
     super.key,
@@ -15,6 +12,9 @@ class MemoryRow extends StatelessWidget {
     required this.text,
     required this.value,
   });
+  final Color color;
+  final String text;
+  final double value;
 
   @override
   Widget build(BuildContext context) {

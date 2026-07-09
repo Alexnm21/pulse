@@ -16,11 +16,6 @@ part 'dashboard_state.dart';
 const int _temperatureSparklineLength = 20;
 
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
-  final GetCpuUsageUseCase _getCpuUsage;
-  final GetMemoryUsageUseCase _getMemoryUsage;
-  final GetStorageUsageUseCase _getStorageUsage;
-  final GetTemperatureUseCase _getTemperature;
-  Timer? _ticker;
 
   DashboardBloc({
     required GetCpuUsageUseCase getCpuUsage,
@@ -49,6 +44,11 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
 
     initialize();
   }
+  final GetCpuUsageUseCase _getCpuUsage;
+  final GetMemoryUsageUseCase _getMemoryUsage;
+  final GetStorageUsageUseCase _getStorageUsage;
+  final GetTemperatureUseCase _getTemperature;
+  Timer? _ticker;
 
   void _onStartMonitoring(
     StartCpuMonitoringEvent event,

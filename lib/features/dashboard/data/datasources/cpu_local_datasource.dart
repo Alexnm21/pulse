@@ -21,7 +21,7 @@ class CpuLocalDataSource {
 
       return CpuModel.fromMap(formattedMap);
     } catch (e) {
-      throw Exception("Error interacting with macOS native channel: $e");
+      throw Exception('Error interacting with macOS native channel: $e');
     }
   }
 }

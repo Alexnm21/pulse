@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:pulse/core/theme/app_colors.dart';
 
 class CrystalCard extends StatelessWidget {
-  final Widget child;
-  final double borderRadius;
-  final double blur;
-  final EdgeInsetsGeometry? padding;
 
   const CrystalCard({
     super.key,
@@ -16,6 +12,10 @@ class CrystalCard extends StatelessWidget {
     this.blur = 20.0,
     this.padding,
   });
+  final Widget child;
+  final double borderRadius;
+  final double blur;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {

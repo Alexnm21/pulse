@@ -14,7 +14,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await di.init();
 
-  WindowOptions windowOptions = const WindowOptions(
+  const WindowOptions windowOptions = WindowOptions(
     size: Size(1680, 1024),
     minimumSize: Size(1000, 600),
     center: true,

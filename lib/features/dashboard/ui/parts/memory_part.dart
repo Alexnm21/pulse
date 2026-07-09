@@ -1,8 +1,8 @@
 part of '../view/dashboard_view.dart';
 
 class MemoryPart extends StatelessWidget {
-  final MemoryEntity data;
   const MemoryPart({super.key, required this.data});
+  final MemoryEntity data;
 
   @override
   Widget build(BuildContext context) {

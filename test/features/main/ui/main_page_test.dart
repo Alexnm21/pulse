@@ -14,12 +14,12 @@ class MockAssetLoader extends AssetLoader {
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     return {
-      "title": "Pulse",
-      "main": {
-        "dashboard": "Dashboard",
-        "processes": "Processes",
-        "thermal": "Thermal",
-        "cleaner": "Cleaner",
+      'title': 'Pulse',
+      'main': {
+        'dashboard': 'Dashboard',
+        'processes': 'Processes',
+        'thermal': 'Thermal',
+        'cleaner': 'Cleaner',
       },
     };
   }

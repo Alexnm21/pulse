@@ -26,15 +26,15 @@ enum NavigationItems {
     viewBuilder: _cleanerBuilder,
   );
 
-  final String icon;
-  final String label;
-  final WidgetBuilder viewBuilder;
-
   const NavigationItems({
     required this.icon,
     required this.label,
     required this.viewBuilder,
   });
+
+  final String icon;
+  final String label;
+  final WidgetBuilder viewBuilder;
 }
 
 Widget _dashboardBuilder(BuildContext context) => const DashboardView();
